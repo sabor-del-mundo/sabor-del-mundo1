@@ -3,207 +3,240 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sabor del Mundo - Restaurante</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* RESET */
-    * {margin:0; padding:0; box-sizing:border-box; font-family: 'Montserrat', sans-serif;}
-    body {line-height: 1.6; color:#333;}
+  <title>Sabor Urbano - Restaurante</title>
+  <meta name="description" content="Sabor Urbano, un restaurante moderno con los mejores sabores de la ciudad. Descubre nuestros platos estrella y reserva tu mesa hoy.">
 
-    /* HEADER */
-    header {
-      background-color: #ff6b3c;
-      color: #fff;
-      padding: 20px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <!-- Estilos -->
+  <style>
+    :root {
+      --primary: #e63946;
+      --dark: #1d1d1d;
+      --light: #f8f9fa;
+      --maxw: 1100px;
     }
-    header .container {
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, Helvetica, sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
+
+    /* Header */
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 12px 0;
+    }
+    .header-inner {
+      max-width: var(--maxw);
+      margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1100px;
-      margin: auto;
-      padding: 0 20px;
+      padding: 0 18px;
     }
-    header h1 {font-size: 28px;}
+    header h1 { font-size: 1.5rem; color: var(--primary); }
     nav a {
-      color: #fff;
+      color: white;
+      margin: 0 12px;
       text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-    }
-    nav a:hover {text-decoration: underline;}
-
-    /* HERO */
-    .hero {
-      background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y29vZGllfHx8fHx8MTY5NTI0ODIyOQ&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
-      height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      text-align: center;
-    }
-    .hero h2 {font-size: 48px; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);}
-    .hero button {
-      background-color: #fff;
-      color: #ff6b3c;
-      padding: 12px 25px;
-      border: none;
       font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: 0.3s;
     }
-    .hero button:hover {background-color: #ffd9c4;}
+    nav a:hover { color: var(--primary); }
 
-    /* SECCIÓN MENÚ */
-    .menu {
-      max-width: 1100px;
-      margin: 50px auto;
+    /* Hero */
+    .hero {
+      background: url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1200&q=80") no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background: var(--primary);
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn:hover { background: #c71c2f; }
+
+    /* Secciones */
+    section {
+      max-width: var(--maxw);
+      margin: 40px auto;
       padding: 0 20px;
     }
-    .menu h3 {text-align: center; font-size: 36px; margin-bottom: 30px;}
-    .menu-items {display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 20px;}
-    .menu-item {
-      border: 1px solid #ddd;
+    h2 { color: var(--primary); margin-bottom: 20px; text-align: center; }
+
+    /* Menú */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .plato {
+      background: white;
       border-radius: 10px;
       overflow: hidden;
-      transition: 0.3s;
-      background-color: #fff;
-    }
-    .menu-item img {width: 100%; height: 180px; object-fit: cover;}
-    .menu-item .info {padding: 15px;}
-    .menu-item .info h4 {margin-bottom: 10px;}
-    .menu-item .info p {margin-bottom: 5px; color: #ff6b3c; font-weight: bold;}
-    .menu-item:hover {transform: scale(1.05); box-shadow: 0 4px 15px rgba(0,0,0,0.2);}
-
-    /* RESERVAS */
-    .reserva {
-      background-color: #ffefe6;
-      padding: 50px 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
       text-align: center;
     }
-    .reserva h3 {font-size: 36px; margin-bottom: 30px;}
-    .reserva form {max-width: 600px; margin: auto; display: grid; gap: 15px;}
-    .reserva input, .reserva button {
-      padding: 12px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-    .reserva button {
-      background-color: #ff6b3c;
-      color: #fff;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .reserva button:hover {background-color: #ff7f5c;}
+    .plato img { width: 100%; height: 180px; object-fit: cover; }
+    .plato h3 { margin: 12px 0 6px; }
+    .plato p { padding: 0 12px 20px; }
 
-    /* CONTACTO */
-    .contacto {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 0 20px;
+    /* Sobre nosotros */
+    .sobre {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
     }
-    .contacto h3 {text-align: center; font-size: 36px; margin-bottom: 30px;}
-    .contacto p {text-align: center; margin-bottom: 10px;}
-    .contacto iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
+    .sobre img { flex: 1; border-radius: 10px; max-width: 400px; }
+    .sobre div { flex: 2; }
+
+    /* Opiniones */
+    .opiniones {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .opinion {
+      background: white;
+      padding: 20px;
       border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     }
+    .opinion p { font-style: italic; }
+    .opinion h4 { margin-top: 12px; color: var(--primary); }
 
-    /* FOOTER */
-    footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
+    /* Contacto */
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    footer a {color: #ff6b3c; text-decoration: none;}
+    input, textarea, button {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover { background: #c71c2f; }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 14px;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- Header -->
   <header>
-    <div class="container">
-      <h1>Sabor del Mundo</h1>
+    <div class="header-inner">
+      <h1>Sabor Urbano</h1>
       <nav>
-        <a href="#inicio">Inicio</a>
         <a href="#menu">Menú</a>
-        <a href="#reserva">Reservas</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#sobre">Nosotros</a>
+        <a href="#opiniones">Opiniones</a>
+        <a href="#contacto">Reservar</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div>
-      <h2>Bienvenidos a Sabor del Mundo</h2>
-      <button onclick="location.href='#menu'">Ver Menú</button>
-    </div>
-  </section>
+  <!-- Hero -->
+  <div class="hero">
+    <h2>Sabores que inspiran</h2>
+    <p>Disfruta la mejor experiencia gastronómica en la ciudad.</p>
+    <a href="#contacto" class="btn">Reserva tu mesa</a>
+  </div>
 
-  <!-- MENÚ -->
-  <section class="menu" id="menu">
-    <h3>Nuestro Menú</h3>
-    <div class="menu-items">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400" alt="Pizza">
-        <div class="info">
-          <h4>Pizza Especial</h4>
-          <p>$12.99</p>
-        </div>
+  <!-- Menú -->
+  <section id="menu">
+    <h2>Platos Estrella</h2>
+    <div class="menu-grid">
+      <div class="plato">
+        <img src="https://images.unsplash.com/photo-1606755962773-0e3d121d63c2?auto=format&fit=crop&w=600&q=80" alt="Hamburguesa gourmet">
+        <h3>Hamburguesa Gourmet</h3>
+        <p>Carne jugosa, queso cheddar, cebolla caramelizada y pan artesanal.</p>
       </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1604908177522-73cd43f0c0f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400" alt="Hamburguesa">
-        <div class="info">
-          <h4>Hamburguesa Gourmet</h4>
-          <p>$10.99</p>
-        </div>
+      <div class="plato">
+        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=600&q=80" alt="Pizza artesanal">
+        <h3>Pizza Artesanal</h3>
+        <p>Masa fina con salsa de la casa, albahaca fresca y mozzarella.</p>
       </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400" alt="Ensalada">
-        <div class="info">
-          <h4>Ensalada Fresca</h4>
-          <p>$8.99</p>
-        </div>
+      <div class="plato">
+        <img src="https://images.unsplash.com/photo-1625944230910-77c36aa0f5b4?auto=format&fit=crop&w=600&q=80" alt="Ensalada fresca">
+        <h3>Ensalada Fresca</h3>
+        <p>Verduras orgánicas con aderezo especial y crotones caseros.</p>
       </div>
     </div>
   </section>
 
-  <!-- RESERVAS -->
-  <section class="reserva" id="reserva">
-    <h3>Reserva tu mesa</h3>
-    <form>
-      <input type="text" placeholder="Nombre" required>
-      <input type="email" placeholder="Email" required>
-      <input type="date" required>
-      <input type="number" placeholder="Número de personas" required>
-      <button type="submit">Reservar Ahora</button>
+  <!-- Sobre nosotros -->
+  <section id="sobre">
+    <h2>Sobre Nosotros</h2>
+    <div class="sobre">
+      <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=800&q=80" alt="Interior restaurante">
+      <div>
+        <p>En <strong>Sabor Urbano</strong> creemos en la cocina como un arte. Usamos ingredientes frescos y técnicas modernas para ofrecer una experiencia inolvidable.</p>
+        <p>Fundado en 2020, nos hemos convertido en un referente de la gastronomía urbana en la ciudad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Opiniones -->
+  <section id="opiniones">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <div class="opiniones">
+      <div class="opinion">
+        <p>“La mejor hamburguesa que he probado en años. Volveré sin duda.”</p>
+        <h4>- Andrea</h4>
+      </div>
+      <div class="opinion">
+        <p>“Un ambiente increíble y un menú lleno de sorpresas deliciosas.”</p>
+        <h4>- Carlos</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2>Reserva tu Mesa</h2>
+    <form action="https://formspree.io/f/manpwpeq" method="POST">
+      <input type="text" name="name" placeholder="Nombre" required>
+      <input type="email" name="email" placeholder="Correo" required>
+      <textarea name="message" rows="5" placeholder="Detalles de la reserva" required></textarea>
+      <button type="submit">Enviar Reserva</button>
     </form>
   </section>
 
-  <!-- CONTACTO -->
-  <section class="contacto" id="contacto">
-    <h3>Contacto y Ubicación</h3>
-    <p>Dirección: Calle Falsa 123, Ciudad Ficticia</p>
-    <p>Teléfono: +57 300 1234567</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.1318173326893!2d-74.08175088595209!3d4.609710343554237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99e0ecf44d3b%3A0x95b2b4c9fcb3f6f!2sBogot%C3%A1%2C%20Colombia!5e0!3m2!1ses!2sco!4v1695248492183!5m2!1ses!2sco" allowfullscreen></iframe>
-  </section>
-
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Sabor del Mundo. Todos los derechos reservados. <a href="#">Instagram</a> | <a href="#">Facebook</a></p>
+    <p>&copy; 2025 Sabor Urbano - Todos los derechos reservados</p>
   </footer>
 
 </body>
 </html>
+
